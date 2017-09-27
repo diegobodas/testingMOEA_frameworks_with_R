@@ -1,0 +1,10 @@
+Package: kursaweMO
+Type: Package
+Title: kursawe problem (2 objectives and 3 variables)
+Version: 1.0
+Date: 2013-08-25
+Author: Diego J. Bodas Sagi
+Maintainer: Diego J. Bodas Sagi <dbodas@pdi.ucm.es>
+Description: This package is used for evaluate kursawe objectives in
+             Multiobjective Optimization with Evolutionary Algorithms
+License: GPL (version 2 or later)

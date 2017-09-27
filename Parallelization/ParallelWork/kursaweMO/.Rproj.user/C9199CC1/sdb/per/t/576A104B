@@ -1,0 +1,15 @@
+{
+    "contents" : "library (snow)\nx <- c(1, 2, 3)\nmyresult <- function(workerID, x) {\n  if (workerID == 1){\n    print (paste (\"Worker\", workerID))\n    return (2*x)\n  }\n  else{\n    print (paste (\"Worker\", workerID))\n    return (5*x)\n  }\n}\n#start the cluster\ncl <- makeCluster(type = \"SOCK\", c(\"localhost\", \"localhost\"))\n\nclusterApply (cl, seq (along = cl), function(id) WORKER.ID <<-id)\nresultados <- clusterApply(cl, 1:2, myresult, x)\nprint (paste (\"resultados\", resultados))\nstopCluster(cl)",
+    "created" : 1377427759836.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3976374728",
+    "id" : "576A104B",
+    "lastKnownWriteTime" : 1377355872,
+    "path" : "~/ParallelWork/PruebasCluster.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

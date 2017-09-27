@@ -1,0 +1,9 @@
+Package: testMACDrules
+Type: Package
+Title: Short examples for Evolutionary Algorithms in R 
+Version: 1.0
+Date: 2013-09-09
+Author: Diego J Bodas Sagi
+Maintainer: Diego J Bodas Sagi <diegobodas@gmail.com>
+Description: Sharpe Ratio using MACD strategy (EMA and SMA options)
+License: GPL (version 2 o later)

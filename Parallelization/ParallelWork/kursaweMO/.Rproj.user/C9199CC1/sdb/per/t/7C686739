@@ -1,0 +1,15 @@
+{
+    "contents" : "library (snow)\nlibrary (kursaweMO)\n\n#start the cluster\ncluster <- makeCluster(type = \"SOCK\", c(\"localhost\", \"localhost\"))\n\nx <- c(1.0, 2.0, 3.0)\n\nresult<- clusterApply(cluster, 1:2, kursaweManager, x)\n\nstopCluster(cluster)",
+    "created" : 1377427760768.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1898918745",
+    "id" : "7C686739",
+    "lastKnownWriteTime" : 1377428500,
+    "path" : "~/ParallelWork/pruebasKursawe.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

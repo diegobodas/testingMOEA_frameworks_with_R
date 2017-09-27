@@ -1,0 +1,15 @@
+{
+    "contents" : "kursaweObj1 <- function (x) {\n  myResult<-0\n  for (i in 1:(length(x)-1)) { \n    myResult <- myResult + (-10.0 * exp(-0.2 * sqrt((x[i])^(2.0) + (x[i+1])^(2.0))))\n  }\n  \n  return (myResult)\n}\n \nkursaweObj2 <- function (x) {\n  myResult<-0\n  for (i in 1:(length(x))) { \n    myResult <- myResult + (abs(x[i])^(0.8)) + 5.0 * sin((x[i])^(3.0))\n  }\n  \n  return (myResult)\n}\n\nkursaweManager <- function(workerID, x) {\n  if (workerID == 1) {\n    return (kursaweObj1(x))\n  }\n  else {\n    return (kursaweObj2(x))\n  }\n}",
+    "created" : 1377427758774.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2546835708",
+    "id" : "C6624243",
+    "lastKnownWriteTime" : 1377384107,
+    "path" : "~/ParallelWork/kursaweObjectives.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

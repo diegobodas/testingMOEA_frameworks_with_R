@@ -1,0 +1,15 @@
+{
+    "contents" : "#Reference: http://blog.revolutionanalytics.com/2009/05/parallelized-backtesting-with-foreach.html\n\n#Define a MACD trading rule. Takes a buy position of the long instrument\n#is signal >0 (converting into the benchmark instrument on the sell signal)\n#typeMA = Simple Moving Average (SMA) or Exponential Moving Average (EMA)\nsimpleRule2 <- function(z, fast, slow, signal, long, benchmark, typeMA) {\n  library(TTR)\n  x <- MACD(z, nFast=fast, nSlow=slow, nSig=signal, maType=typeMA)\n  position <- sign(x[,1]-x[,2])\n  s <- xts(position, order.by=index(z))\n  return (long * (s>0) + benchmark * (s<=0))\n}\n\nsharpeRatio <- function (z, fast, slow, signal, long, benchmark, typeMA) {\n  Return <- simpleRule2(z$SP500, fast, slow, signal, long, benchmark, typeMA)\n  Dt <- na.omit (Return - benchmark)\n  sharpe <- mean(Dt)/sd(Dt)\n  return (sharpe)\n}\n\nsimpleRuleRiskReturnManager <- function(workerID, z, fast, slow, signal, long, benchmark) {\n  if (workerID == 1) {\n    return (sharpeRatio(z$SP500, fast, slow, signal, long, benchmark, \"SMA\")) \n  }\n  else {\n    return (sharpeRatio(z$SP500, fast, slow, signal, long, benchmark, \"EMA\"))\n  }\n}",
+    "created" : 1379422734823.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "555694741",
+    "id" : "244710EE",
+    "lastKnownWriteTime" : 1379425955,
+    "path" : "~/ParallelWork/testMACDrules/R/testMACDrules.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
